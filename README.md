@@ -13,3 +13,11 @@ It adds : Member professional activity and a customized Friend invitation Sign-i
 
 ## Usage
 * Just add the components you require to a page and everything should work out of the box
+
+## Developers
+
+* Cedric FROSSARD
+
+## License
+
+Apache License 2.0
