@@ -1,6 +1,7 @@
 <?php namespace HON\HonCuratorUser;
 
 use Backend;
+use Event;
 use System\Classes\PluginBase;
 use RainLab\User\Models\User as UserModel;
 use RainLab\User\Controllers\User as UserController;
@@ -50,6 +51,30 @@ class Plugin extends PluginBase
             $fillables = $model->getFillable();
             $fillables[] = 'activity';
             $model->fillable($fillables);
+        });
+
+        // Extend all backend list usage
+        Event::listen('backend.list.extendColumns', function($widget) {
+
+            // Only for the User controller
+            if (!$widget->getController() instanceof \RainLab\User\Controllers\Users) {
+                return;
+            }
+
+            // Only for the User model
+            if (!$widget->model instanceof \RainLab\User\Models\User) {
+                return;
+            }
+
+            $widget->addColumns([
+                'activity' => [
+                    'label' => 'Activity',
+                    'searchable' => true,
+                    'relation'=> 'activity',
+                    'select'=> 'label'
+                ]
+            ]);
+
         });
     }
 
