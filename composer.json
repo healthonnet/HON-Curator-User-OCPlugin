@@ -1,0 +1,18 @@
+{
+  "name": "hon/hon-curator-user-plugin",
+  "type": "october-plugin",
+  "description": "Extend Rainlab User plugin for HON Curator",
+  "keywords": ["october", "octobercms", "hon", "honcurator", "user"],
+  "license": "Apache Licence 2.0",
+  "authors": [
+    {
+      "name": "Cedric Frossard (Adrion)",
+      "email": "adrion.dev@gmail.com",
+    }
+  ],
+  "require": {
+    "php": ">=5.5.9",
+    "composer/installers": "~1.0"
+  },
+  "minimum-stability": "dev"
+}
