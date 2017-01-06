@@ -9,7 +9,7 @@ class AddActivityId extends Migration
     {
         Schema::table('users', function($table)
         {
-            $table->string('activity_id');
+            $table->integer('activity_id');
         });
     }
 
