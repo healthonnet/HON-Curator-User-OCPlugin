@@ -1,2 +1,5 @@
 1.0.1:
     - First version of HonCuratorUser
+    - create_activity_table.php
+    - add_activity_id.php
+    - seed_all_tables.php

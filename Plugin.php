@@ -45,7 +45,12 @@ class Plugin extends PluginBase
      */
     public function boot()
     {
-    
+        UserModel::extend(function($model) {
+            $model->belongsTo['activity'] = ['HON\HonCuratorUser\Models\Activity'];
+            $fillables = $model->getFillable();
+            $fillables[] = 'activity';
+            $model->fillable($fillables);
+        });
     }
 
     /**
