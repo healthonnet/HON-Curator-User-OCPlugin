@@ -3,3 +3,6 @@
     - create_activity_table.php
     - add_activity_id.php
     - seed_all_tables.php
+1.0.2:
+    - Add Sponsorship
+    - add_sponsor_id.php

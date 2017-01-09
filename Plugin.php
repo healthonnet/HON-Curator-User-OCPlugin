@@ -47,13 +47,18 @@ class Plugin extends PluginBase
      */
     public function boot()
     {
+        // Add extension's relations and attributes.
         UserModel::extend(function($model) {
+            $model->hasMany['recommendees'] = ['RainLab\User\Models\User', 'key' => 'sponsor_id'];
+            $model->belongsTo['sponsor'] = ['RainLab\User\Models\User', 'key' => 'sponsor_id'];
             $model->belongsTo['activity'] = ['HON\HonCuratorUser\Models\Activity'];
             $fillables = $model->getFillable();
             $fillables[] = 'activity';
+            $fillables[] = 'sponsor';
             $model->fillable($fillables);
         });
 
+        
 
         // Extend User backend form usage
         UserController::extendFormFields(function($form, $model, $context) {
@@ -73,6 +78,15 @@ class Plugin extends PluginBase
                     'options' => $activities
                 ]
             ]);
+
+            $form->addTabFields([
+                'sponsor' => [
+                    'label' => 'Sponsor',
+                    'type' => 'partial',
+                    'tab' => 'Sponsorship',
+                    'path' => '$/hon/honcuratoruser/controllers/sponsorship/_sponsorship_view.htm',
+                ]
+            ]);
         });
 
         // Extend User backend list usage
@@ -90,7 +104,6 @@ class Plugin extends PluginBase
                     'select'=> 'label'
                 ]
             ]);
-
         });
     }
 
