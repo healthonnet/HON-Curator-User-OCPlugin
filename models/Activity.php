@@ -26,5 +26,15 @@ class Activity extends Model
         'users' => ['RainLab\User\Models\User', 'order' => 'created_at desc']
     ];
 
+    public static function getActivityOptions() {
+
+        $activities = Activity::all();
+        $options = array();
+        foreach ($activities as $activity) {
+            $options[$activity->id] = $activity->label;
+        }
+        return $options;
+    }
+
     //TODO Add before Delete => can't remove if a user is using the activity
 }

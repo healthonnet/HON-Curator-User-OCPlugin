@@ -2,6 +2,7 @@
 
 use Backend;
 use Event;
+use HON\HonCuratorUser\Models\Activity;
 use System\Classes\PluginBase;
 use RainLab\User\Models\User as UserModel;
 use RainLab\User\Controllers\Users as UserController;
@@ -54,7 +55,27 @@ class Plugin extends PluginBase
         });
 
 
-        // Extend all backend list usage
+        // Extend User backend form usage
+        UserController::extendFormFields(function($form, $model, $context) {
+            if (!$model instanceof UserModel)
+                return;
+
+            if (!$model->exists)
+                return;
+
+            $activities = Activity::getActivityOptions();
+
+            $form->addTabFields([
+                'activity' => [
+                    'label' => 'Activity',
+                    'type' => 'dropdown',
+                    'tab' => 'rainlab.user::lang.user.account',
+                    'options' => $activities
+                ]
+            ]);
+        });
+
+        // Extend User backend list usage
         UserController::extendListColumns(function($widget,  $model) {
 
             // Only for the User model
