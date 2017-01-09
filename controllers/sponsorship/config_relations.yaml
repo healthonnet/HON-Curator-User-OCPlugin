@@ -1,0 +1,11 @@
+# ===================================
+#  Relation Behavior Config
+# ===================================
+
+recommendees:
+    label: Recommendees
+    view:
+        list: $/rainlab/user/models/user/columns.yaml
+    manage:
+        form: $/rainlab/user/models/user/fields.yaml
+        recordsPerPage: 10

@@ -58,7 +58,15 @@ class Plugin extends PluginBase
             $model->fillable($fillables);
         });
 
-        
+        // Extend Backend model relations
+        UserController::extend(function($controller){
+
+            if(!isset($controller->implement['Backend.Behaviors.RelationController']))
+                $controller->implement[] = 'Backend.Behaviors.RelationController';
+
+            $controller->relationConfig  =  '$/hon/honcuratoruser/controllers/sponsorship/config_relations.yaml';
+
+        });
 
         // Extend User backend form usage
         UserController::extendFormFields(function($form, $model, $context) {
