@@ -3,7 +3,7 @@
 use Schema;
 use October\Rain\Database\Updates\Migration;
 
-class AddActivityId extends Migration
+class AddSponsorId extends Migration
 {
     public function up()
     {
