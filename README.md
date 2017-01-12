@@ -16,7 +16,7 @@ It adds : Member professional activity and a customized Friend invitation Sign-i
 
 ## Developers
 
-* Cedric FROSSARD
+* [Cedric FROSSARD](https://github.com/Adrion)
 
 ## License
 
