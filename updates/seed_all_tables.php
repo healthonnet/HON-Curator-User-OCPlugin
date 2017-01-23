@@ -9,6 +9,11 @@ class SeedAllTables extends Seeder
     public function run()
     {
         Activity::create([
+            'label' => 'Unknown',
+            'description' => 'Default value',
+        ]);
+
+        Activity::create([
             'label' => 'Student',
             'description' => 'Studing health in a Health course',
         ]);
