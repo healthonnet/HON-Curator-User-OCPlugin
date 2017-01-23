@@ -1,4 +1,4 @@
-<?php namespace Hon\HonCuratorUser\Updates;
+<?php namespace HON\HonCuratorUser\Updates;
 
 use Schema;
 use Hon\HonCuratorUser\Models\Activity;

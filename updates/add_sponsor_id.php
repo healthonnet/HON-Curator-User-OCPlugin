@@ -1,4 +1,4 @@
-<?php namespace RainLab\Forum\Updates;
+<?php namespace HON\HonCuratorUser\Updates;
 
 use Schema;
 use October\Rain\Database\Updates\Migration;
