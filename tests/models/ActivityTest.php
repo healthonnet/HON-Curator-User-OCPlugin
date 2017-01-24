@@ -3,7 +3,7 @@
 use HON\HonCuratorUser\Models\Activity;
 use PluginTestCase;
 
-class PostTest extends PluginTestCase
+class ActivityTest extends PluginTestCase
 {
     public function testGetActivityOptions()
     {
