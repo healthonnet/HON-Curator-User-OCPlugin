@@ -1,4 +1,4 @@
-<?php namespace HON\HonCuratorUser\Models;
+<?php namespace HON\HonCuratorUser\Tests;
 
 use HON\HonCuratorUser\Models\Activity;
 use PluginTestCase;
