@@ -3,6 +3,8 @@
 use Cms\Classes\ComponentBase;
 use Exception;
 use HON\HonCuratorUser\Models\Activity;
+use Input;
+use RainLab\User\Classes\AuthManager;
 use RainLab\User\Models\User;
 
 class HonSponsorship extends ComponentBase
@@ -29,6 +31,21 @@ class HonSponsorship extends ComponentBase
     public function onSendActivationRequest()
     {
         // TODO Check user level.
+        $sponsor = User::where('id', Input::get('sponsor_id'))->first();
+        $honUser = User::where('id', Input::get('honUser_id'))->first();
+
+        if (is_null($sponsor) || is_null($honUser))
+        {
+            // TODO Handle error
+            return false;
+        }
+
+        // TODO Compare activity against sponsor user group
+
+        // TODO Set his user-group (remove guest and add new one)
+        $honUser->attemptActivation($honUser->getActivationCode());
+
+        return [$sponsor, $honUser];
     }
 
     /**
