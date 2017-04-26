@@ -4,6 +4,8 @@ use Cms\Classes\ComponentBase;
 use Exception;
 use HON\HonCuratorUser\Models\Activity;
 use Input;
+use Request;
+use Redirect;
 use RainLab\User\Classes\AuthManager;
 use RainLab\User\Models\User;
 
@@ -42,10 +44,10 @@ class HonSponsorship extends ComponentBase
 
         // TODO Compare activity against sponsor user group
 
+
         // TODO Set his user-group (remove guest and add new one)
         $honUser->attemptActivation($honUser->getActivationCode());
-
-        return [$sponsor, $honUser];
+        return Redirect::to(Request::fullUrl());
     }
 
     /**
