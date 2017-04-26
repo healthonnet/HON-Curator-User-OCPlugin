@@ -125,6 +125,7 @@ class Plugin extends PluginBase
 
         return [
             'HON\HonCuratorUser\Components\HonActivities' => 'honActivities',
+            'HON\HonCuratorUser\Components\HonSponsorship' => 'honSponsorship',
         ];
     }
 
