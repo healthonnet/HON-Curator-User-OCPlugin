@@ -3,8 +3,9 @@
 use Cms\Classes\ComponentBase;
 use Exception;
 use HON\HonCuratorUser\Models\Activity;
-use Illuminate\Support\Facades\Mail;
+use Mail;
 use Input;
+use Flash;
 use Request;
 use Redirect;
 use RainLab\User\Classes\AuthManager;
@@ -42,14 +43,14 @@ class HonSponsorship extends ComponentBase
         $honUserActivity = Activity::findOrFail($honUser->activity_id);
 
         if ($sponsorActivity->level < $honUserActivity->level) {
-            // TODO Handle error (Flash message)
+            Flash::error('You can\'t activate this user');
             return false;
         }
         // TODO Set his user-group
 
         // Activate the user
         if(!$honUser->attemptActivation($honUser->getActivationCode())) {
-            // TODO Handle error (Flash message)
+            Flash::error('An error occurred during activation.');
             return false;
         }
 
@@ -79,7 +80,8 @@ class HonSponsorship extends ComponentBase
             $message->subject('An activation request as been reported');
         });
 
-        // TODO Return success (Flash Message)
+        Flash::success('Report sended');
+        return true;
     }
 
     protected function getHonUsersToActivate()
