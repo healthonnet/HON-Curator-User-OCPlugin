@@ -32,24 +32,23 @@ class HonSponsorship extends ComponentBase
      */
     public function onSendActivationRequest()
     {
-        // TODO Check user level.
-        $sponsor = User::where('id', Input::get('sponsor_id'))->first();
-        $honUser = User::where('id', Input::get('honUser_id'))->first();
+        // TODO Handle error (Flash message)
 
-        if (is_null($sponsor) || is_null($honUser))
+        $sponsor = User::findOrFail(Input::get('sponsor_id'));
+        $honUser = User::findOrFail(Input::get('honUser_id'));
+
+        $sponsorActivity = Activity::findOrFail($sponsor->activity_id);
+        $honUserActivity = Activity::findOrFail($honUser->activity_id);
+
+        if ($sponsorActivity->level < $honUserActivity->level)
         {
             // TODO Handle error (Flash message)
             return false;
         }
 
-        if (!$sponsor->canActivate($honUser))
-        {
-            // TODO Handle error (Flash message)
-            return false;
-        }
-
-        // TODO Set his user-group (remove guest and add new one)
+        // TODO Set his user-group
         $honUser->attemptActivation($honUser->getActivationCode());
+
         return Redirect::to(Request::fullUrl());
     }
 
