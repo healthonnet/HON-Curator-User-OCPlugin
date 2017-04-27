@@ -91,6 +91,16 @@ class Plugin extends PluginBase
             $form->addTabFields([
                 'sponsor' => [
                     'label' => 'hon.honcuratoruser::lang.user.sponsor',
+                    'label' => 'Sponsor',
+                    'type' => 'relation',
+                    'nameFrom' => 'email',
+                    'tab' => 'rainlab.user::lang.user.account',
+                ]
+            ]);
+
+            $form->addTabFields([
+                'recommandees' => [
+                    'label' => 'hon.honcuratoruser::lang.user.recommandees',
                     'type' => 'partial',
                     'tab' => 'hon.honcuratoruser::lang.user.sponsorship',
                     'path' => '$/hon/honcuratoruser/controllers/sponsorship/_sponsorship_view.htm',
