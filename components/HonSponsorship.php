@@ -40,14 +40,21 @@ class HonSponsorship extends ComponentBase
         $sponsorActivity = Activity::findOrFail($sponsor->activity_id);
         $honUserActivity = Activity::findOrFail($honUser->activity_id);
 
-        if ($sponsorActivity->level < $honUserActivity->level)
-        {
+        if ($sponsorActivity->level < $honUserActivity->level) {
+            // TODO Handle error (Flash message)
+            return false;
+        }
+        // TODO Set his user-group
+
+        // Activate the user
+        if(!$honUser->attemptActivation($honUser->getActivationCode())) {
             // TODO Handle error (Flash message)
             return false;
         }
 
-        // TODO Set his user-group
-        $honUser->attemptActivation($honUser->getActivationCode());
+        // Bind the sponsor
+        $honUser->sponsor_id = $sponsor->id;
+        $honUser->save();
 
         return Redirect::to(Request::fullUrl());
     }
