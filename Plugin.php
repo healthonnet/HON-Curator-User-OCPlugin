@@ -177,4 +177,11 @@ class Plugin extends PluginBase
         ];
     }
 
+    public function registerMailTemplates()
+    {
+        return [
+            'hon.honcuratoruser::mail.report_request'   => 'Report email sent to admin.',
+        ];
+    }
+
 }

@@ -3,6 +3,7 @@
 use Cms\Classes\ComponentBase;
 use Exception;
 use HON\HonCuratorUser\Models\Activity;
+use Illuminate\Support\Facades\Mail;
 use Input;
 use Request;
 use Redirect;
@@ -64,7 +65,21 @@ class HonSponsorship extends ComponentBase
      */
     public function onSendActivationReport()
     {
-        // TODO Send an email with who ? reports who ?
+
+        $reporter = User::findOrFail(Input::get('sponsor_id'));
+        $honUser = User::findOrFail(Input::get('honUser_id'));
+
+        $vars = [
+          'reporter' => $reporter->email,
+          'account' => $honUser->email,
+        ];
+
+        Mail::send('hon.honcuratoruser::mail.report_request', $vars, function($message) {
+            $message->to('team-it@healthonnet.org', 'HonCurator Admin');
+            $message->subject('An activation request as been reported');
+        });
+
+        // TODO Return success (Flash Message)
     }
 
     protected function getHonUsersToActivate()
