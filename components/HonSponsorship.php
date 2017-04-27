@@ -38,12 +38,15 @@ class HonSponsorship extends ComponentBase
 
         if (is_null($sponsor) || is_null($honUser))
         {
-            // TODO Handle error
+            // TODO Handle error (Flash message)
             return false;
         }
 
-        // TODO Compare activity against sponsor user group
-
+        if (!$sponsor->canActivate($honUser))
+        {
+            // TODO Handle error (Flash message)
+            return false;
+        }
 
         // TODO Set his user-group (remove guest and add new one)
         $honUser->attemptActivation($honUser->getActivationCode());
