@@ -57,14 +57,6 @@ class Plugin extends PluginBase
             $fillables[] = 'sponsor';
             $model->fillable($fillables);
 
-            $model->addDynamicMethod('canActivate', function($honUser) use ($model) {
-                if (!$honUser instanceof UserModel)
-                    return;
-
-                // TODO Compare activity against sponsor user group
-                return true;
-
-            });
         });
 
         // Extend Backend model relations
