@@ -7,5 +7,7 @@ return [
     ],
     'user' => [
         'sponsorship' => 'Sponsorship',
-    ]
+        'sponsor' => 'Sponsor',
+        'activity' => 'Activity',
+    ],
 ];

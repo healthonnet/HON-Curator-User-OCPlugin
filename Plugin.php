@@ -80,7 +80,7 @@ class Plugin extends PluginBase
 
             $form->addTabFields([
                 'activity' => [
-                    'label' => 'Activity',
+                    'label' => 'hon.honcuratoruser::lang.user.activity',
                     'type' => 'dropdown',
                     'tab' => 'rainlab.user::lang.user.account',
                     'options' => $activities
@@ -89,7 +89,7 @@ class Plugin extends PluginBase
 
             $form->addTabFields([
                 'sponsor' => [
-                    'label' => 'Sponsor',
+                    'label' => 'hon.honcuratoruser::lang.user.sponsor',
                     'type' => 'partial',
                     'tab' => 'hon.honcuratoruser::lang.user.sponsorship',
                     'path' => '$/hon/honcuratoruser/controllers/sponsorship/_sponsorship_view.htm',
@@ -106,7 +106,7 @@ class Plugin extends PluginBase
 
             $widget->addColumns([
                 'activity' => [
-                    'label' => 'Activity',
+                    'label' => 'hon.honcuratoruser::lang.user.activity',
                     'searchable' => true,
                     'relation'=> 'activity',
                     'select'=> 'label'
