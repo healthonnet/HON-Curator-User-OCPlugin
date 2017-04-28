@@ -23,8 +23,8 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'HonCuratorUser',
-            'description' => 'No description provided yet...',
+            'name'        => 'hon.honcuratoruser::lang.plugin.name',
+            'description' => 'hon.honcuratoruser::lang.plugin.description',
             'author'      => 'HON',
             'icon'        => 'icon-leaf'
         ];
@@ -91,7 +91,7 @@ class Plugin extends PluginBase
                 'sponsor' => [
                     'label' => 'Sponsor',
                     'type' => 'partial',
-                    'tab' => 'Sponsorship',
+                    'tab' => 'hon.honcuratoruser::lang.user.sponsorship',
                     'path' => '$/hon/honcuratoruser/controllers/sponsorship/_sponsorship_view.htm',
                 ]
             ]);
