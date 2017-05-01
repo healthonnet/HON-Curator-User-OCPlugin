@@ -12,12 +12,12 @@ class Activity extends Model
     /**
      * @var array Fillable fields
      */
-    protected $fillable = ['label', 'description'];
+    protected $fillable = ['label', 'description', 'level'];
 
     /**
      * @var array The attributes that should be visible in arrays.
      */
-    protected $visible = ['label', 'description'];
+    protected $visible = ['label', 'description', 'level'];
 
     /**
      * @var array Relations

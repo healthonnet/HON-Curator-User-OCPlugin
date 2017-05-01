@@ -8,6 +8,7 @@ return [
     'user' => [
         'sponsorship' => 'Sponsorship',
         'sponsor' => 'Sponsor',
+        'recommandees' => 'Recommandees',
         'activity' => 'Activity',
     ],
 ];
