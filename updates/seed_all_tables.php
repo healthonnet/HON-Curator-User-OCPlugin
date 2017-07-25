@@ -10,8 +10,9 @@ class SeedAllTables extends Seeder
     {
 
         Activity::create([
-            'label' => 'Unknown',
-            'description' => 'Default value',
+            'label' => 'Patient',
+            'description' => 'Default type',
+            'level' => 1,
         ]);
 
         Activity::create([
@@ -26,11 +27,6 @@ class SeedAllTables extends Seeder
             'level' => 3,
         ]);
 
-        Activity::create([
-            'label' => 'Patient',
-            'description' => 'some definition to make',
-            'level' => 1,
-        ]);
 
     }
 }
