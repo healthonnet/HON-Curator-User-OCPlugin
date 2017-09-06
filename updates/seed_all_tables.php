@@ -10,21 +10,45 @@ class SeedAllTables extends Seeder
     {
 
         Activity::create([
-            'label' => 'Patient',
+            'label' => 'curious',
             'description' => 'Default type',
             'level' => 1,
         ]);
 
         Activity::create([
-            'label' => 'Student',
-            'description' => 'Studing health in a Health course',
+            'label' => 'recently_diagnosed',
+            'description' => 'Recently diagnosed user',
+            'level' => 1,
+        ]);
+
+        Activity::create([
+            'label' => 'chronic_user',
+            'description' => 'User which have a chronic disease',
+            'level' => 1,
+        ]);
+
+        Activity::create([
+            'label' => 'editorial',
+            'description' => 'Health helper',
             'level' => 2,
         ]);
 
         Activity::create([
-            'label' => 'Professional',
-            'description' => 'Praticians, professors, searchers',
+            'label' => 'student',
+            'description' => 'Studing health in a Health course',
             'level' => 3,
+        ]);
+
+        Activity::create([
+            'label' => 'helper',
+            'description' => 'Health helper',
+            'level' => 3,
+        ]);
+
+        Activity::create([
+            'label' => 'professional',
+            'description' => 'Praticians, professors, searchers',
+            'level' => 4,
         ]);
 
 
