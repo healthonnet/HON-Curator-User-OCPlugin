@@ -14,6 +14,9 @@ It adds : Member professional activity and a customized Friend invitation Sign-i
 ## Usage
 * Just add the components you require to a page and everything should work out of the box
 
+## TODO
+* Be less Health Curator specific (activities labels). 
+
 ## Developers
 
 * [Cedric FROSSARD](https://github.com/Adrion)
