@@ -3,6 +3,7 @@
 use Backend;
 use Event;
 use HON\HonCuratorUser\Models\Activity;
+use Illuminate\Support\Facades\Lang;
 use System\Classes\PluginBase;
 use RainLab\User\Models\User as UserModel;
 use RainLab\User\Controllers\Users as UserController;
@@ -47,6 +48,13 @@ class Plugin extends PluginBase
      */
     public function boot()
     {
+        Event::listen('rainlab.user.getNotificationVars', function($mailVars) {
+            return [
+                'welcomeSubject' => Lang::get('hon.honcuratoruser::lang.account.welcomeSubject'),
+                'welcome1' => Lang::get('hon.honcuratoruser::lang.account.welcome1'),
+            ];
+        });
+
         // Add extension's relations and attributes.
         UserModel::extend(function($model) {
             $model->hasMany['recommendees'] = ['RainLab\User\Models\User', 'key' => 'sponsor_id'];
